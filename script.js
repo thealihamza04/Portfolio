@@ -51,7 +51,7 @@ function showMessage() {
     messageBox.style.animation = "slideIn 0.5s ease-in forwards";
     // Remove animation & add fade-out after 4s
     setTimeout(() => {
-        messageBox.style.animation = "fadeOut 3s ease-out forwards";
+        messageBox.style.animation = "fadeOut 1s ease-out forwards";
     }, 4000);
 }
 

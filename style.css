@@ -215,6 +215,7 @@ span {
     border: .2rem solid var(--bg-color);
     transition: .5s ease;
     text-wrap: wrap;
+    
 }
 
 .services-container .services-box:hover {
@@ -405,6 +406,7 @@ span {
     color: #fff;
     font-weight: 500;
     letter-spacing: .3rem;
+    font-size: medium;
 }
 
 #loading{
@@ -430,7 +432,7 @@ span {
 
 @keyframes fadeOut {
     0% { opacity: 1; }
-    100% { opacity: 0; }
+    100% { opacity: 1; right: -90rem; } 
 }
 
 #custom-message {
@@ -438,14 +440,18 @@ span {
     text-align: center;
     padding: 13px 23px;
     bottom: 4rem;
-    right: -90rem; /* Initially hidden */
-    border-radius: 1rem;
+    /* Initially hidden */
+    right: -90rem; 
+    right: 2rem;
+    border-radius: 1.2rem;
     color: var(--text-color);
     font-weight: 500;
     letter-spacing: .1rem;
     background-color: var(--secoden-bg-color);
     overflow: hidden;
-    opacity: 0; /* Initially hidden */
+    opacity: 0; /* Initially hidden */  
+    border: rgba(128, 128, 128, 0.312) 1px solid;
+
 }
 
 #custom-message::after{
@@ -490,6 +496,9 @@ span {
 
     .footer {
         padding: 2rem 3%;
+    }
+    #custom-message {
+        font-size: 1rem;
     }
 }
 
