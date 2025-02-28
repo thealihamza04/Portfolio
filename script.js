@@ -34,10 +34,10 @@ document.getElementById("contact-form").addEventListener('submit', function (e) 
         email: email, // Include this if needed
         message: message,
     }).then(function (response) {
-        alert("Message sent successfully!");
         document.getElementById('submit_btn').style.display = 'block';
         document.getElementById('loading-btn').style.display = 'none';
         document.getElementById('contact-form').reset();
+        showMessage();
     }, function (error) {
         alert("Error sending message: " + JSON.stringify(error));
         document.getElementById('submit_btn').style.display = 'block';
@@ -45,6 +45,15 @@ document.getElementById("contact-form").addEventListener('submit', function (e) 
     });
 });
 
+function showMessage() {
+    let messageBox = document.getElementById("custom-message");
+    // Add slide-in animation
+    messageBox.style.animation = "slideIn 0.5s ease-in forwards";
+    // Remove animation & add fade-out after 4s
+    setTimeout(() => {
+        messageBox.style.animation = "fadeOut 3s ease-out forwards";
+    }, 4000);
+}
 
 
 /*==================== scroll sections active link ====================*/

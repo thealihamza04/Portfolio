@@ -423,6 +423,42 @@ span {
     100% { transform: rotate(360deg); }
 }
 
+@keyframes slideIn {
+    0% { right: -90rem; opacity: 0; }
+    100% { right: 2rem; opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#custom-message {
+    position: fixed;
+    text-align: center;
+    padding: 13px 23px;
+    bottom: 4rem;
+    right: -90rem; /* Initially hidden */
+    border-radius: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: .1rem;
+    background-color: var(--secoden-bg-color);
+    overflow: hidden;
+    opacity: 0; /* Initially hidden */
+}
+
+#custom-message::after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    opacity: 70%;
+    left: 0px;
+    width: 15px;
+    height: 90px;
+    background-color: var(--main-color);
+}
+
 
 /* Breadpoints */
 @media (max-width: 1200px) {
