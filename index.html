@@ -78,18 +78,16 @@
     <div class="services-container">
       <div class="services-box">
         <i class='bx bx-code'></i>
-        <h3>Frontend Development</h3>
-        <p>Skilled in building modern web apps with React specializing in responsive design and performance
-          optimization.</p>
+        <h3>Frontend Dev</h3>
+        <p>Skilled in building modern web apps with React specializing in responsive design</p>
         <!-- <a href="#" class="btn">Read More</a> -->
       </div>
 
       <div class="services-box">
         <i class='bx bx-code-alt'></i>
-        <h3>Backend Development</h3>
+        <h3>Backend Dev</h3>
         <p>
-          Specialized in server-side development using Node.js, Python and PHP. Building robust APIs and database
-          solutions.</p>
+          Specialized in server-side development using Node.js. Building robust APIs </p>
         <!-- <a href="#" class="btn">Read More</a> -->
       </div>
 
@@ -97,7 +95,7 @@
         <i class='bx bx-pen'></i>
         <h3>ui/ux Designing</h3>
         <p>
-            Proficient in designing user-friendly screens on Figma, with experience in wireframing, prototyping, responsive design, user flows, interaction design, and visual aesthetics.
+          Specialized in UI/UX design using Figma, creating intuitive interfaces, prototypes, and user flows. 🎨
         </p>
         <!-- <a href="#" class="btn">Read More</a> -->
       </div>
@@ -175,7 +173,12 @@
         <input type="email" id="email" placeholder="Email Adress">
       </div>
       <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-      <input type="submit" value="Send Message" class="btn">
+      <div style="display: flex; justify-items: center; align-items: center;">
+        <input type="submit" value="Send Message" id="submit_btn" class="btn">
+        <div id="loading-btn">
+          sending <div id="loading"></div>
+        </div>
+      </div>
     </form>
   </section>
 

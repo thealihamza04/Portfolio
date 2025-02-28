@@ -145,6 +145,8 @@ span {
 
 .btn {
     display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1rem 2.8rem;
     background: var(--main-color);
     border-radius: 4rem;
@@ -212,6 +214,7 @@ span {
     text-align: center;
     border: .2rem solid var(--bg-color);
     transition: .5s ease;
+    text-wrap: wrap;
 }
 
 .services-container .services-box:hover {
@@ -381,6 +384,43 @@ span {
 .footer-iconTop a i {
     font-size: 2.4rem;
     color: var(--secoden-bg-color);
+}
+
+#loading-btn{
+    margin-top: 2rem;
+    background-color: gray;
+    padding: 1rem 2.8rem;
+    cursor: not-allowed;
+    display: none;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 180px !important;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: .3rem;
+}
+
+#loading{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--secoden-bg-color);
+    border-radius: 80%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
 }
 
 

@@ -11,19 +11,22 @@ menuIcon.onclick = () => {
 // ================= email mechnism ===========================
 document.getElementById("contact-form").addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const to_name = "ah0681988@gmail.com";
     const from_name = document.getElementById('name').value; // Use 'name' for full name
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-   
 
     if (!from_name || !email || !message) {
         alert("Please fill in all fields.");
         return;
     }
 
-    
+    // show loading animation while the message is send
+    document.getElementById('submit_btn').style.display = 'none';
+    document.getElementById('loading-btn').style.display = 'flex';
+
+
     emailjs.init("ZjCuN6YW2Pc9Rn72H"); // Replace with the correct key
     emailjs.send("service_bvch679", "template_lbxvkkb", {
         to_name: to_name,
@@ -32,8 +35,13 @@ document.getElementById("contact-form").addEventListener('submit', function (e) 
         message: message,
     }).then(function (response) {
         alert("Message sent successfully!");
+        document.getElementById('submit_btn').style.display = 'block';
+        document.getElementById('loading-btn').style.display = 'none';
+        document.getElementById('contact-form').reset();
     }, function (error) {
         alert("Error sending message: " + JSON.stringify(error));
+        document.getElementById('submit_btn').style.display = 'block';
+        document.getElementById('loading-btn').style.display = 'none';
     });
 });
 
