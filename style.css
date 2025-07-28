@@ -91,9 +91,11 @@ section {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-2.4rem);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -215,7 +217,7 @@ span {
     border: .2rem solid var(--bg-color);
     transition: .5s ease;
     text-wrap: wrap;
-    
+
 }
 
 .services-container .services-box:hover {
@@ -267,6 +269,7 @@ span {
 
 .portfolio-box:hover img {
     transform: scale(1.1);
+    opacity: .4;
 }
 
 .portfolio-box .portfolio-layer {
@@ -387,7 +390,7 @@ span {
     color: var(--secoden-bg-color);
 }
 
-#loading-btn{
+#loading-btn {
     margin-top: 2rem;
     background-color: gray;
     padding: 1rem 2.8rem;
@@ -409,7 +412,7 @@ span {
     font-size: medium;
 }
 
-#loading{
+#loading {
     width: 20px;
     height: 20px;
     display: inline-block;
@@ -420,19 +423,40 @@ span {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes slideIn {
-    0% { right: -90rem; opacity: 0; }
-    100% { right: 2rem; opacity: 1; }
+    0% {
+        right: -90rem;
+        opacity: 0;
+    }
+
+    100% {
+        right: 2rem;
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 1; right: -90rem; } 
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        right: -90rem;
+    }
 }
 
 #custom-message {
@@ -441,7 +465,7 @@ span {
     padding: 13px 23px;
     bottom: 4rem;
     /* Initially hidden */
-    right: -90rem; 
+    right: -90rem;
     right: 2rem;
     border-radius: 1.2rem;
     color: var(--text-color);
@@ -449,12 +473,13 @@ span {
     letter-spacing: .1rem;
     background-color: var(--secoden-bg-color);
     overflow: hidden;
-    opacity: 0; /* Initially hidden */  
+    opacity: 0;
+    /* Initially hidden */
     border: rgba(128, 128, 128, 0.312) 1px solid;
 
 }
 
-#custom-message::after{
+#custom-message::after {
     content: '';
     position: absolute;
     top: 0px;
@@ -497,6 +522,7 @@ span {
     .footer {
         padding: 2rem 3%;
     }
+
     #custom-message {
         font-size: 1rem;
     }
@@ -517,11 +543,13 @@ span {
         background: var(--bg-color);
         border-top: .1rem solid rgba(0, 0, 0, .2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        transition: height 0.5s ease; /* ✅ Smooth transition */
+        transition: height 0.5s ease;
+        /* ✅ Smooth transition */
     }
 
     .navbar.active {
-        height: 100vh; /* ✅ Full height when active */
+        height: 100vh;
+        /* ✅ Full height when active */
     }
 
     .navbar a {
