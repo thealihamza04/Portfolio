@@ -604,6 +604,10 @@ p {
         gap: 10px;
     }
 
+    .col {
+        gap: 0;
+    }
+
 }
 
 @media (max-width: 786px) {
