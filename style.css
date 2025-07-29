@@ -606,6 +606,9 @@ p {
 
     .col {
         gap: 0;
+        justify-content: left;
+        align-items: start;
+        float: left;
     }
 
 }
