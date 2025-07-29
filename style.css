@@ -390,8 +390,11 @@ span {
 }
 
 .footer a,
-p {
+span {
     font-size: medium;
+}
+
+.footer span {
     user-select: all;
 }
 
