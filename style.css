@@ -390,11 +390,12 @@ span {
 }
 
 .footer a,
-span {
+.link {
     font-size: medium;
+    font: 100;
 }
 
-.footer span {
+.footer .link {
     cursor: default;
     user-select: all;
 }
