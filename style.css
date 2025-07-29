@@ -601,7 +601,10 @@ p {
 
     .footer {
         grid-template-columns: repeat(1, auto);
-        gap: 10px;
+    }
+
+    .footer div {
+        margin-bottom: 20px;
     }
 
     .col {
