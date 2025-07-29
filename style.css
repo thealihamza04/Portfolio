@@ -359,17 +359,39 @@ span {
 }
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     padding: 2rem 9%;
     background: var(--secoden-bg-color);
 }
 
-.footer-text p {
-    font-size: 1.6rem;
+.footer .col {
+    display: flex;
+    flex-direction: column;
 }
+
+.footer .col a {
+    color: var(--text-color);
+}
+
+
+
+.footer .footer-links {
+    display: flex;
+    gap: 33px;
+    background: var(--secoden-bg-color);
+}
+
+.footer h1 {
+    color: var(--main-color);
+    font-size: large;
+}
+
+.footer a,
+p {
+    font-size: medium;
+}
+
 
 .footer-iconTop a {
     display: inline-flex;
