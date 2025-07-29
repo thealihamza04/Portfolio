@@ -393,7 +393,7 @@ span {
 .link {
     font-size: medium;
     font: 100;
-    line-height: normal;
+    line-height: 2.1rem !important;
 }
 
 .footer .link {
