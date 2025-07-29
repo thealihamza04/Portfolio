@@ -675,6 +675,10 @@ p {
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .main {
+        display: none;
+    }
 }
 
 
