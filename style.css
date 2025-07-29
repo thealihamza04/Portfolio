@@ -395,6 +395,7 @@ span {
 }
 
 .footer span {
+    cursor: default;
     user-select: all;
 }
 
