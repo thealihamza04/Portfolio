@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -359,6 +360,7 @@ span {
 }
 
 .footer {
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(3, auto);
     padding: 2rem 9%;
@@ -390,6 +392,7 @@ span {
 .footer a,
 p {
     font-size: medium;
+    user-select: all;
 }
 
 
@@ -410,6 +413,53 @@ p {
 .footer-iconTop a i {
     font-size: 2.4rem;
     color: var(--secoden-bg-color);
+}
+
+.text {
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    /* font-family: 'Kanit'; */
+    /* font-family: "Kanit", sans-serif; */
+    font-size: 17px;
+    fill: var(--text-color);
+    text-shadow: 1px 0px #ccc;
+}
+
+#rotatingText {
+    animation-name: rotate-circle;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate-circle {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.main {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.main img {
+    position: absolute;
+}
+
+
+.main img {
+    position: absolute;
+    /* animation-name: rotate-circle; */
+    animation-direction: reverse;
+    filter: invert(100%) !important;
+    animation-duration: 5s;
+    /* animation-timing-function: linear; */
+    /* animation-iteration-count: infinite; */
+    filter: drop-shadow(0px 0px 5px #333);
 }
 
 #loading-btn {
@@ -548,6 +598,12 @@ p {
     #custom-message {
         font-size: 1rem;
     }
+
+    .footer {
+        grid-template-columns: repeat(1, auto);
+        gap: 10px;
+    }
+
 }
 
 @media (max-width: 786px) {
