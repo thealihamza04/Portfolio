@@ -400,7 +400,6 @@ span {
     user-select: all;
 }
 
-
 .footer-iconTop a {
     display: inline-flex;
     justify-content: center;
@@ -544,6 +543,7 @@ span {
     /* Initially hidden */
     right: -90rem;
     right: 2rem;
+    top: 10rem;
     border-radius: 1.2rem;
     color: var(--text-color);
     font-weight: 500;
@@ -551,6 +551,7 @@ span {
     background-color: var(--secoden-bg-color);
     overflow: hidden;
     opacity: 0;
+    height: 6%;
     /* Initially hidden */
     border: rgba(128, 128, 128, 0.312) 1px solid;
 
