@@ -14,10 +14,13 @@
 }
 
 :root {
-    --bg-color: #1f242d;
-    --secoden-bg-color: #323946;
-    --text-color: #fff;
-    --main-color: #0ef;
+    /* refreshed color scheme */
+    --bg-color: #0e0b16;
+    --secoden-bg-color: #1a1625;
+    --text-color: #e0e0e0;
+    --main-color: #ff4d5a;
+    --accent-color: #00f7ff;
+    --gradient: linear-gradient(135deg, var(--main-color), var(--accent-color));
 }
 
 html {
@@ -28,6 +31,9 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
+    background-image: radial-gradient(circle at top left, rgba(255,77,90,0.15), transparent 60%),
+                      radial-gradient(circle at bottom right, rgba(0,247,255,0.15), transparent 60%);
+    background-attachment: fixed;
 }
 
 section {
@@ -41,34 +47,58 @@ section {
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background: var(--bg-color);
+    background: rgba(14, 11, 22, 0.8);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header.sticky {
-    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+    border-bottom: .1rem solid rgba(255, 255, 255, .1);
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--text-color);
-    font-weight: 600;
+    font-weight: 800;
     cursor: default;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 2px;
 }
 
 .navbar a {
-    font-size: 1.7rem;
+    position: relative;
+    font-size: 1.6rem;
     color: var(--text-color);
     margin-left: 4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .05em;
     transition: .3s;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width .3s;
 }
 
 .navbar a:hover,
 .navbar a.active {
-    color: var(--main-color);
+    color: var(--text-color);
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
 }
 
 #menu-icon {
@@ -78,13 +108,16 @@ section {
 }
 
 .home {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
+    gap: 5rem;
 }
 
 .home-img img {
-    width: 35vw;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.6);
     animation: floatImage 4s ease-in-out infinite;
 }
 
@@ -103,8 +136,9 @@ section {
 }
 
 .home-content h3 {
-    font-size: 3.2rem;
+    font-size: clamp(2rem, 3vw, 3.2rem);
     font-weight: 700;
+    font-family: 'Kanit', sans-serif;
 }
 
 .home-content h3:nth-of-type(2) {
@@ -116,13 +150,15 @@ span {
 }
 
 .home-content h1 {
-    font-size: 5.6rem;
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    font-family: 'Kanit', sans-serif;
 }
 
 .home-content p {
     font-size: 1.6rem;
+    max-width: 60ch;
 }
 
 .social-media a {
@@ -141,8 +177,8 @@ span {
 }
 
 .social-media a:hover {
-    background: var(--main-color);
-    color: var(--secoden-bg-color);
+    background: var(--gradient);
+    color: var(--bg-color);
     box-shadow: 0 0 1rem var(--main-color);
 }
 
@@ -150,19 +186,20 @@ span {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem 2.8rem;
-    background: var(--main-color);
+    padding: 1rem 3rem;
+    background: var(--gradient);
     border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--main-color);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
     font-size: 1.6rem;
-    color: var(--secoden-bg-color);
+    color: var(--bg-color);
     letter-spacing: .1rem;
     font-weight: 600;
-    transition: .5s ease;
+    transition: .3s ease;
 }
 
 .btn:hover {
-    box-shadow: none;
+    box-shadow: 0 0 1.5rem var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .about {
@@ -181,6 +218,15 @@ span {
 .heading {
     text-align: center;
     font-size: 4.5rem;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.heading span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .about-content h2 {
@@ -202,37 +248,39 @@ span {
 }
 
 .services-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
 }
 
 .services-container .services-box {
-    flex: 1 1 30rem;
     background: var(--secoden-bg-color);
     padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: .3s;
     text-wrap: wrap;
 
 }
 
 .services-container .services-box:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);
+    background: rgba(255, 77, 90, 0.1);
+    transform: translateY(-10px);
 }
 
 .services-box i {
     font-size: 7rem;
-    color: var(--main-color);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .services-box h3 {
     font-size: 2.6rem;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 1rem;
 }
 
 .services-box p {
@@ -250,52 +298,49 @@ span {
 
 .portfolio-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .portfolio-container .portfolio-box {
     position: relative;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--bg-color);
+    border-radius: 1.5rem;
     overflow: hidden;
     display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-box img {
     width: 100%;
-    transition: .5s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 .portfolio-box:hover img {
-    transform: scale(1.1);
-    opacity: .4;
+    transform: scale(1.05);
+    filter: blur(2px);
 }
-
 .portfolio-box .portfolio-layer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    inset: 0;
+    background: rgba(14, 11, 22, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
     padding: 0 4rem;
-    transform: translateY(100%);
-    transition: .5s ease-in-out;
+    opacity: 0;
+    transition: .3s ease;
 }
 
 .portfolio-box:hover .portfolio-layer {
-    transform: translateY(0%);
+    opacity: 1;
 }
 
 .portfolio-layer h4 {
-    font-size: 3rem;
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 .portfolio-layer p {
@@ -309,13 +354,18 @@ span {
     align-items: center;
     width: 5rem;
     height: 5rem;
-    background: var(--text-color);
+    background: var(--bg-color);
     border-radius: 50%;
+    transition: .3s;
 }
 
 .portfolio-layer a i {
     font-size: 2rem;
-    color: var(--secoden-bg-color);
+    color: var(--bg-color);
+}
+
+.portfolio-layer a:hover {
+    background: var(--gradient);
 }
 
 .contact h2 {
@@ -344,6 +394,13 @@ span {
     background: var(--secoden-bg-color);
     border-radius: .8rem;
     margin: .7rem 0;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+    border-color: var(--main-color);
+    background: rgba(255, 77, 90, 0.1);
 }
 
 .contact form .input-box input {
@@ -362,18 +419,26 @@ span {
 .footer {
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    padding: 2rem 9%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 9%;
     background: var(--secoden-bg-color);
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer .col {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .footer .col a {
     color: var(--text-color);
+    transition: color .3s;
+}
+
+.footer .col a:hover {
+    color: var(--main-color);
 }
 
 
@@ -387,7 +452,8 @@ span {
 .footer h1 {
     margin-bottom: .6rem;
     color: var(--main-color);
-    font-size: large;
+    font-size: 2rem;
+    font-family: 'Kanit', sans-serif;
 }
 
 .footer a,
@@ -661,7 +727,7 @@ span {
     }
 
     .home {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     .home-content h3 {
