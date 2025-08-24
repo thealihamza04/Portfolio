@@ -8,6 +8,8 @@ const lenis = new Lenis({
     lerp: 0.1,
 });
 
+const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -21,7 +23,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                lenis.scrollTo(target);
+                lenis.scrollTo(target, {
+                    duration: 1.5,
+                    easing: easeOutQuad,
+                });
             }
         }
     });
