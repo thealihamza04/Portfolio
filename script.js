@@ -2,6 +2,32 @@
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
+// ==================== smooth scroll ====================
+const lenis = new Lenis({
+    smooth: true,
+    lerp: 0.1,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        const targetId = anchor.getAttribute('href');
+        if (targetId.length > 1) {
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                lenis.scrollTo(target);
+            }
+        }
+    });
+});
+
+
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
