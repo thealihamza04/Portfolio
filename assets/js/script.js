@@ -24,7 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             if (target) {
                 e.preventDefault();
                 lenis.scrollTo(target, {
-                    duration: 0.5,
+                    duration: 1.2,
                     easing: easeOutQuad,
                 });
             }
