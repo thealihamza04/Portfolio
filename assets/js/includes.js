@@ -15,6 +15,14 @@
   // After injection, load the main script so DOM exists
   const s = document.createElement('script')
   s.src = 'assets/js/script.js'
+  s.onload = () => {
+    document.body.classList.remove('is-including')
+    document.body.classList.add('is-ready')
+  }
+  s.onerror = () => {
+    // Ensure page becomes visible even if main script fails
+    document.body.classList.remove('is-including')
+    document.body.classList.add('is-ready')
+  }
   document.body.appendChild(s)
 })()
-

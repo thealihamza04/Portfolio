@@ -53,9 +53,14 @@
     </script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Prevent flash while partials load; fades in once ready */
+    body.is-including { opacity: 0; }
+    body.is-ready { opacity: 1; transition: opacity .18s ease-in; }
+  </style>
 </head>
 
-<body>
+<body class="is-including">
   <div data-include="partials/header.html"></div>
   <div data-include="partials/home.html"></div>
   <div data-include="partials/about.html"></div>
