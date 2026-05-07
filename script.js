@@ -32,18 +32,42 @@ if (!prefersReducedMotion.matches && window.Lenis) {
     requestAnimationFrame(raf);
 }
 
+function focusTarget(target) {
+    target.focus({ preventScroll: true });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
         const targetId = anchor.getAttribute("href");
         if (targetId.length > 1) {
             const target = document.querySelector(targetId);
-            if (target && lenis) {
-                e.preventDefault();
+            if (!target) {
+                return;
+            }
+
+            e.preventDefault();
+
+            if (lenis) {
                 lenis.scrollTo(target, {
                     duration: 0.5,
                     easing: easeOutQuad,
+                    onComplete: () => {
+                        if (anchor.classList.contains("skip-link")) {
+                            focusTarget(target);
+                        }
+                    },
                 });
+            } else {
+                target.scrollIntoView({ behavior: "auto", block: "start" });
+                if (anchor.classList.contains("skip-link")) {
+                    focusTarget(target);
+                }
             }
+
+            if (anchor.classList.contains("skip-link") && lenis) {
+                window.setTimeout(() => focusTarget(target), 600);
+            }
+
             setMenuOpen(false);
         }
     });

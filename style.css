@@ -55,8 +55,15 @@ body {
     transition: transform .2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:hover,
+.skip-link:active {
     transform: translateY(0);
+}
+
+#main-content:focus {
+    outline: .3rem solid var(--main-color);
+    outline-offset: -.6rem;
 }
 
 a:focus-visible,
