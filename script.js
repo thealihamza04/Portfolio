@@ -1,41 +1,64 @@
 /*==================== toggle icon navbar ====================*/
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+const menuButton = document.querySelector("#menu-icon");
+const menuButtonIcon = menuButton.querySelector("i");
+const navbar = document.querySelector(".navbar");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function setMenuOpen(isOpen) {
+    menuButtonIcon.classList.toggle("bx-x", isOpen);
+    menuButtonIcon.classList.toggle("bx-menu", !isOpen);
+    navbar.classList.toggle("active", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+}
 
 // ==================== smooth scroll ====================
-const lenis = new Lenis({
-    smooth: true,
-    lerp: 0.1,
-});
-
+let lenis;
 const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
 
-function raf(time) {
-    lenis.raf(time);
+if (!prefersReducedMotion.matches && window.Lenis) {
+    lenis = new Lenis({
+        smooth: true,
+        lerp: 0.1,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
 }
-requestAnimationFrame(raf);
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
         const targetId = anchor.getAttribute("href");
         if (targetId.length > 1) {
             const target = document.querySelector(targetId);
-            if (target) {
+            if (target && lenis) {
                 e.preventDefault();
                 lenis.scrollTo(target, {
                     duration: 0.5,
                     easing: easeOutQuad,
                 });
             }
+            setMenuOpen(false);
         }
     });
 });
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle("bx-x");
-    navbar.classList.toggle("active");
-};
+menuButton.addEventListener("click", () => {
+    setMenuOpen(!navbar.classList.contains("active"));
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navbar.classList.contains("active")) {
+        setMenuOpen(false);
+        menuButton.focus();
+    }
+});
 
 // ================= email mechnism ===========================
 document
@@ -47,6 +70,8 @@ document
         const from_name = document.getElementById("name").value; // Use 'name' for full name
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
+        const submitButton = document.getElementById("submit_btn");
+        const loadingButton = document.getElementById("loading-btn");
 
         if (!from_name || !email || !message) {
             alert("Please fill in all fields.");
@@ -54,8 +79,9 @@ document
         }
 
         // show loading animation while the message is send
-        document.getElementById("submit_btn").style.display = "none";
-        document.getElementById("loading-btn").style.display = "flex";
+        submitButton.style.display = "none";
+        loadingButton.style.display = "flex";
+        loadingButton.setAttribute("aria-hidden", "false");
 
         emailjs.init("ZjCuN6YW2Pc9Rn72H"); // Replace with the correct key
         emailjs
@@ -66,20 +92,18 @@ document
                 message: message,
             })
             .then(
-                function (response) {
-                    document.getElementById("submit_btn").style.display =
-                        "block";
-                    document.getElementById("loading-btn").style.display =
-                        "none";
+                function () {
+                    submitButton.style.display = "block";
+                    loadingButton.style.display = "none";
+                    loadingButton.setAttribute("aria-hidden", "true");
                     document.getElementById("contact-form").reset();
                     showMessage();
                 },
                 function (error) {
                     alert("Error sending message: " + JSON.stringify(error));
-                    document.getElementById("submit_btn").style.display =
-                        "block";
-                    document.getElementById("loading-btn").style.display =
-                        "none";
+                    submitButton.style.display = "block";
+                    loadingButton.style.display = "none";
+                    loadingButton.setAttribute("aria-hidden", "true");
                 }
             );
     });
@@ -108,10 +132,13 @@ window.onscroll = () => {
         if (top >= offset && top < offset + height) {
             navLinks.forEach((links) => {
                 links.classList.remove("active");
-                document
-                    .querySelector("header nav a[href*=" + id + "]")
-                    .classList.add("active");
+                links.removeAttribute("aria-current");
             });
+            const activeLink = document.querySelector(
+                "header nav a[href*=" + id + "]"
+            );
+            activeLink.classList.add("active");
+            activeLink.setAttribute("aria-current", "location");
         }
     });
 
@@ -120,32 +147,37 @@ window.onscroll = () => {
     header.classList.toggle("sticky", window.scrollY > 100);
 
     /*==================== remove toggle icon and navbar when click navbar link (scroll) ====================*/
-    menuIcon.classList.remove("bx-x");
-    navbar.classList.remove("active");
+    setMenuOpen(false);
 };
 
 /*==================== scroll reveal ====================*/
-ScrollReveal({
-    reset: false,
-    distance: "20px",
-    duration: 2000,
-    delay: 200,
-});
+if (!prefersReducedMotion.matches && window.ScrollReveal) {
+    ScrollReveal({
+        reset: false,
+        distance: "20px",
+        duration: 2000,
+        delay: 200,
+    });
 
-ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(
-    ".home-img, .services-container, .portfolio-box, .contact form",
-    { origin: "bottom" }
-);
-ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
-ScrollReveal().reveal(".home-content p, .about-content  ", { origin: "right" });
+    ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
+    ScrollReveal().reveal(
+        ".home-img, .services-container, .portfolio-box, .contact form",
+        { origin: "bottom" }
+    );
+    ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
+    ScrollReveal().reveal(".home-content p, .about-content  ", { origin: "right" });
+}
 
 /*==================== typed js ====================*/
-const typed = new Typed(".multiple-text", {
-    strings: ["Frontend Dev", "Backend Dev", "UI/UX Designer"],
-    typeSpeed: 100,
-    backSpeed: 10,
-    backDelay: 1000,
-    loop: true,
-    reset: true,
-});
+if (!prefersReducedMotion.matches && window.Typed) {
+    new Typed(".multiple-text", {
+        strings: ["Frontend Dev", "Backend Dev", "UI/UX Designer"],
+        typeSpeed: 100,
+        backSpeed: 10,
+        backDelay: 1000,
+        loop: true,
+        reset: true,
+    });
+} else {
+    document.querySelector(".multiple-text").textContent = "Full Stack Developer";
+}
