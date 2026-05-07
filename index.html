@@ -56,13 +56,17 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- header design -->
   <header class="header">
-    <a href="#" class="logo">AH</a>
-    <i class="bx bx-menu" id="menu-icon"></i>
+    <a href="#home" class="logo" aria-label="Ali Hamza portfolio home">AH</a>
+    <button class="menu-toggle" id="menu-icon" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+      <i class="bx bx-menu" aria-hidden="true"></i>
+    </button>
 
-    <nav class="navbar">
-      <a href="#home" class="active">Home</a>
+    <nav class="navbar" id="primary-navigation" aria-label="Primary navigation">
+      <a href="#home" class="active" aria-current="location">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Projects</a>
@@ -71,11 +75,12 @@
   </header>
   <!-- home section design -->
 
-  <section class="home" id="home">
+  <main id="main-content" tabindex="-1">
+  <section class="home" id="home" aria-labelledby="home-heading">
     <div class="home-content">
-      <h3>Hello, It's Me</h3>
-      <h1>Ali Hamza</h1>
-      <h3>And I'm a <span class="multiple-text"></span></h3>
+      <p class="home-eyebrow">Hello, It's Me</p>
+      <h1 id="home-heading">Ali Hamza</h1>
+      <p class="home-role">And I'm a <span class="sr-only">Full Stack Developer</span><span class="multiple-text" aria-hidden="true"></span></p>
       <p>
         I'm a versatile developer passionate about creating exceptional
         digital experiences. As a Frontend Developer, I craft responsive and
@@ -100,9 +105,9 @@
   </section>
 
   <!-- about section design -->
-  <section class="about" id="about">
+  <section class="about" id="about" aria-labelledby="about-heading">
     <div class="about-content">
-      <h2 class="heading">About <span>Me</span></h2>
+      <h2 class="heading" id="about-heading">About <span>Me</span></h2>
       <h3>Full Stack Developer & Designer</h3>
       <p>
         Based in Kot Radha Kishen, Pakistan, I'm a passionate Full Stack
@@ -122,12 +127,12 @@
 
   <!-- services section design -->
 
-  <section class="services" id="services">
-    <h2 class="heading"><span>Services</span></h2>
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <h2 class="heading" id="services-heading"><span>Services</span></h2>
 
     <div class="services-container">
       <div class="services-box">
-        <i class="bx bx-code"></i>
+        <i class="bx bx-code" aria-hidden="true"></i>
         <h3>Frontend Dev</h3>
         <p>
           Skilled in building web apps with React specializing in responsive
@@ -137,7 +142,7 @@
       </div>
 
       <div class="services-box">
-        <i class="bx bx-code-alt"></i>
+        <i class="bx bx-code-alt" aria-hidden="true"></i>
         <h3>Backend Dev</h3>
         <p>
           Specialized in server-side development using Node.js. Building
@@ -147,7 +152,7 @@
       </div>
 
       <div class="services-box">
-        <i class="bx bx-pen"></i>
+        <i class="bx bx-pen" aria-hidden="true"></i>
         <h3>ui/ux Designing</h3>
         <p>
           Specialized in UI/UX design using Figma, creating interfaces &
@@ -159,126 +164,198 @@
   </section>
   <!-- portfolio section design -->
 
-  <section class="portfolio" id="portfolio">
-    <h2 class="heading">Latest <span>Project</span></h2>
+  <section class="portfolio" id="portfolio" aria-labelledby="portfolio-heading">
+    <h2 class="heading" id="portfolio-heading">Latest <span>Project</span></h2>
 
-    <div class="portfolio-container">
-      <div class="portfolio-box">
-        <img src="images/cs.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>Codes-Sphere</h4>
-          <!-- <p style="color: #323946">A curated collection of programming languages, tools, and frameworks</p> -->
-          <a href="https://codes-sphere.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+    <ul class="portfolio-container" aria-label="Latest projects">
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-codes-sphere-title">
+          <a class="portfolio-link" href="https://codes-sphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-codes-sphere-description project-codes-sphere-new-tab" aria-labelledby="project-codes-sphere-title">
+            <img src="images/cs.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Codes-Sphere</span>
+              <span class="portfolio-description">A curated collection of programming languages, tools, and frameworks.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-codes-sphere-title">Codes-Sphere</span>
+            <span class="sr-only" id="project-codes-sphere-description">A curated collection of programming languages, tools, and frameworks.</span>
+            <span class="sr-only" id="project-codes-sphere-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/gc.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>BotSphere</h4>
-          <!-- <p> chatbot interface inspired by Gemini, offering interactive conversations. </p> -->
-          <a href="https://botsphere.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-botsphere-title">
+          <a class="portfolio-link" href="https://botsphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-botsphere-description project-botsphere-new-tab" aria-labelledby="project-botsphere-title">
+            <img src="images/gc.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">BotSphere</span>
+              <span class="portfolio-description">A chatbot interface inspired by Gemini for interactive conversations.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-botsphere-title">BotSphere</span>
+            <span class="sr-only" id="project-botsphere-description">A chatbot interface inspired by Gemini for interactive conversations.</span>
+            <span class="sr-only" id="project-botsphere-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/vr.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>Virtual Reality</h4>
-          <p></p>
-          <a href="https://frontvr.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-virtual-reality-title">
+          <a class="portfolio-link" href="https://frontvr.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-virtual-reality-description project-virtual-reality-new-tab" aria-labelledby="project-virtual-reality-title">
+            <img src="images/vr.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Virtual Reality</span>
+              <span class="portfolio-description">A frontend virtual reality landing page and interactive web experience.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-virtual-reality-title">Virtual Reality</span>
+            <span class="sr-only" id="project-virtual-reality-description">A frontend virtual reality landing page and interactive web experience.</span>
+            <span class="sr-only" id="project-virtual-reality-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/rqg.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>Random Quotes</h4>
-          <p></p>
-          <a href="https://rq-generator.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-random-quotes-title">
+          <a class="portfolio-link" href="https://rq-generator.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-random-quotes-description project-random-quotes-new-tab" aria-labelledby="project-random-quotes-title">
+            <img src="images/rqg.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Random Quotes</span>
+              <span class="portfolio-description">A random quote generator for quickly discovering and sharing quotes.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-random-quotes-title">Random Quotes</span>
+            <span class="sr-only" id="project-random-quotes-description">A random quote generator for quickly discovering and sharing quotes.</span>
+            <span class="sr-only" id="project-random-quotes-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <!-- <img src="images/readnest.png" alt=""> -->
-        <img src="images/rn.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>ReadNest</h4>
-          <!-- <p style="color: #323946">a books selling webapp</p> -->
-          <a href="https://readnest.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-readnest-title">
+          <a class="portfolio-link" href="https://readnest.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-readnest-description project-readnest-new-tab" aria-labelledby="project-readnest-title">
+            <img src="images/rn.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">ReadNest</span>
+              <span class="portfolio-description">A book-selling web application focused on browsing and shopping for books.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-readnest-title">ReadNest</span>
+            <span class="sr-only" id="project-readnest-description">A book-selling web application focused on browsing and shopping for books.</span>
+            <span class="sr-only" id="project-readnest-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/bb.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>BigBrains</h4>
-          <!-- <p>Web Application for Selling Online Courses
-            <span style="color: rgba(219, 219, 219, 0.793)">*Production</span>
-          </p> -->
-          <a href="https://bigbrainss.com/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-bigbrains-title">
+          <a class="portfolio-link" href="https://bigbrainss.com/" target="_blank" rel="noopener noreferrer" aria-describedby="project-bigbrains-description project-bigbrains-new-tab" aria-labelledby="project-bigbrains-title">
+            <img src="images/bb.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">BigBrains</span>
+              <span class="portfolio-description">A production web application for selling online courses.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-bigbrains-title">BigBrains</span>
+            <span class="sr-only" id="project-bigbrains-description">A production web application for selling online courses.</span>
+            <span class="sr-only" id="project-bigbrains-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/dl.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>DeadLine Tracker</h4>
-          <a href="https://deadline-tracker04.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-deadline-tracker-title">
+          <a class="portfolio-link" href="https://deadline-tracker04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-deadline-tracker-description project-deadline-tracker-new-tab" aria-labelledby="project-deadline-tracker-title">
+            <img src="images/dl.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">DeadLine Tracker</span>
+              <span class="portfolio-description">A deadline tracking tool for managing tasks and due dates.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-deadline-tracker-title">DeadLine Tracker</span>
+            <span class="sr-only" id="project-deadline-tracker-description">A deadline tracking tool for managing tasks and due dates.</span>
+            <span class="sr-only" id="project-deadline-tracker-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/tell_me_your_need.png" alt="" />
-        <div class="portfolio-layer">
-          <h4>TellMeYourNeed</h4>
-          <a href="https://tellmeyourneed.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-tellmeyourneed-title">
+          <a class="portfolio-link" href="https://tellmeyourneed.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-tellmeyourneed-description project-tellmeyourneed-new-tab" aria-labelledby="project-tellmeyourneed-title">
+            <img src="images/tell_me_your_need.png" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">TellMeYourNeed</span>
+              <span class="portfolio-description">A web application that helps users share requirements and connect around needs.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-tellmeyourneed-title">TellMeYourNeed</span>
+            <span class="sr-only" id="project-tellmeyourneed-description">A web application that helps users share requirements and connect around needs.</span>
+            <span class="sr-only" id="project-tellmeyourneed-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/ta.jpg" alt="" />
-        <div class="portfolio-layer">
-          <h4>ThinkArena</h4>
-          <a href="https://thinkarena.vercel.app/" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- </div> -->
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-thinkarena-title">
+          <a class="portfolio-link" href="https://thinkarena.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-thinkarena-description project-thinkarena-new-tab" aria-labelledby="project-thinkarena-title">
+            <img src="images/ta.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">ThinkArena</span>
+              <span class="portfolio-description">A web project for sharing ideas and exploring thought-provoking content.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-thinkarena-title">ThinkArena</span>
+            <span class="sr-only" id="project-thinkarena-description">A web project for sharing ideas and exploring thought-provoking content.</span>
+            <span class="sr-only" id="project-thinkarena-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
+    </ul>
   </section>
 
   <!-- contact section design -->
-  <section class="contact" id="contact">
-    <h2 class="heading">Contact <span>Me!</span></h2>
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <h2 class="heading" id="contact-heading">Contact <span>Me!</span></h2>
 
     <form action="#" id="contact-form">
       <div class="input-box">
-        <input type="text" id="name" placeholder="Full Name" />
-        <input type="email" id="email" placeholder="Email Adress" />
+        <div class="field-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
       </div>
-      <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-      <div style="display: flex; justify-items: center; align-items: center">
+      <div class="field-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+      </div>
+      <div class="form-actions">
         <input type="submit" value="Send Message" id="submit_btn" class="btn" />
-        <div id="loading-btn">
-          sending
-          <div id="loading"></div>
+        <div id="loading-btn" role="status" aria-live="polite" aria-hidden="true">
+          Sending message
+          <div id="loading" aria-hidden="true"></div>
         </div>
       </div>
     </form>
   </section>
+  </main>
 
   <!-- custom message -->
-  <div id="custom-message">
+  <div id="custom-message" role="status" aria-live="polite" aria-atomic="true" hidden>
     <p>
       Thank you for reaching out! I'll get back to you soon
-      <i class="bx bx-rocket"></i>
+      <i class="bx bx-rocket" aria-hidden="true"></i>
     </p>
   </div>
 
   <!-- footer design [tailwind css used here] -->
-  <footer class="footer">
+  <footer class="footer" aria-label="Footer">
     <div class="col">
-      <h1 class="">Quick Links</h1>
+      <h2 class="">Quick Links</h2>
       <a href="https://www.upwork.com/freelancers/~0108b1074fe9afbd80?viewMode=1">
         UpWork
       </a>
@@ -289,15 +366,15 @@
     </div>
 
     <div class="col">
-      <h1>contact Info</h1>
+      <h2>Contact Info</h2>
       <p class="link">thealihamza.dev@gmail.com</p>
     </div>
 
     <div class="main">
       <!-- <img src="https://www.kirupa.com/icon/1f354.svg" width="50" height="50"> -->
-      <img src="./images/shareicon.png" width="50" height="50" />
-      <a href="https://www.linkedin.com/in/contact-with-alihamza/">
-        <svg id="rotatingText" viewBox="0 0 200 200" width="150" height="150">
+      <img src="./images/shareicon.png" width="50" height="50" alt="" aria-hidden="true" />
+      <a href="https://www.linkedin.com/in/contact-with-alihamza/" aria-label="Connect with Ali Hamza on LinkedIn">
+        <svg id="rotatingText" viewBox="0 0 200 200" width="150" height="150" aria-hidden="true" focusable="false">
           <defs>
             <path id="circle" d="M 100, 100
                     m -75, 0
