@@ -32,18 +32,42 @@ if (!prefersReducedMotion.matches && window.Lenis) {
     requestAnimationFrame(raf);
 }
 
+function focusTarget(target) {
+    target.focus({ preventScroll: true });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
         const targetId = anchor.getAttribute("href");
         if (targetId.length > 1) {
             const target = document.querySelector(targetId);
-            if (target && lenis) {
-                e.preventDefault();
+            if (!target) {
+                return;
+            }
+
+            e.preventDefault();
+
+            if (lenis) {
                 lenis.scrollTo(target, {
                     duration: 0.5,
                     easing: easeOutQuad,
+                    onComplete: () => {
+                        if (anchor.classList.contains("skip-link")) {
+                            focusTarget(target);
+                        }
+                    },
                 });
+            } else {
+                target.scrollIntoView({ behavior: "auto", block: "start" });
+                if (anchor.classList.contains("skip-link")) {
+                    focusTarget(target);
+                }
             }
+
+            if (anchor.classList.contains("skip-link") && lenis) {
+                window.setTimeout(() => focusTarget(target), 600);
+            }
+
             setMenuOpen(false);
         }
     });
@@ -110,11 +134,29 @@ document
 
 function showMessage() {
     let messageBox = document.getElementById("custom-message");
-    // Add slide-in animation
-    messageBox.style.animation = "slideIn 0.5s ease-in forwards";
-    // Remove animation & add fade-out after 4s
+    messageBox.hidden = false;
+
+    if (prefersReducedMotion.matches) {
+        messageBox.style.right = "2rem";
+        messageBox.style.opacity = "1";
+    } else {
+        // Add slide-in animation
+        messageBox.style.animation = "slideIn 0.5s ease-in forwards";
+    }
+
+    // Hide the message after it has been announced and read.
     setTimeout(() => {
+        if (prefersReducedMotion.matches) {
+            messageBox.style.opacity = "0";
+            messageBox.style.right = "-90rem";
+            messageBox.hidden = true;
+            return;
+        }
+
         messageBox.style.animation = "fadeOut 1s ease-out forwards";
+        setTimeout(() => {
+            messageBox.hidden = true;
+        }, 1000);
     }, 4000);
 }
 

@@ -75,12 +75,12 @@
   </header>
   <!-- home section design -->
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
   <section class="home" id="home" aria-labelledby="home-heading">
     <div class="home-content">
-      <h3>Hello, It's Me</h3>
+      <p class="home-eyebrow">Hello, It's Me</p>
       <h1 id="home-heading">Ali Hamza</h1>
-      <h3>And I'm a <span class="sr-only">Full Stack Developer</span><span class="multiple-text" aria-hidden="true"></span></h3>
+      <p class="home-role">And I'm a <span class="sr-only">Full Stack Developer</span><span class="multiple-text" aria-hidden="true"></span></p>
       <p>
         I'm a versatile developer passionate about creating exceptional
         digital experiences. As a Frontend Developer, I craft responsive and
@@ -167,89 +167,151 @@
   <section class="portfolio" id="portfolio" aria-labelledby="portfolio-heading">
     <h2 class="heading" id="portfolio-heading">Latest <span>Project</span></h2>
 
-    <div class="portfolio-container">
-      <div class="portfolio-box">
-        <img src="images/cs.jpg" alt="Screenshot of the Codes-Sphere project" />
-        <div class="portfolio-layer">
-          <h4>Codes-Sphere</h4>
-          <!-- <p style="color: #323946">A curated collection of programming languages, tools, and frameworks</p> -->
-          <a href="https://codes-sphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View Codes-Sphere project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+    <ul class="portfolio-container" aria-label="Latest projects">
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-codes-sphere-title">
+          <a class="portfolio-link" href="https://codes-sphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-codes-sphere-description project-codes-sphere-new-tab" aria-labelledby="project-codes-sphere-title">
+            <img src="images/cs.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Codes-Sphere</span>
+              <span class="portfolio-description">A curated collection of programming languages, tools, and frameworks.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-codes-sphere-title">Codes-Sphere</span>
+            <span class="sr-only" id="project-codes-sphere-description">A curated collection of programming languages, tools, and frameworks.</span>
+            <span class="sr-only" id="project-codes-sphere-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/gc.jpg" alt="Screenshot of the BotSphere project" />
-        <div class="portfolio-layer">
-          <h4>BotSphere</h4>
-          <!-- <p> chatbot interface inspired by Gemini, offering interactive conversations. </p> -->
-          <a href="https://botsphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View BotSphere project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-botsphere-title">
+          <a class="portfolio-link" href="https://botsphere.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-botsphere-description project-botsphere-new-tab" aria-labelledby="project-botsphere-title">
+            <img src="images/gc.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">BotSphere</span>
+              <span class="portfolio-description">A chatbot interface inspired by Gemini for interactive conversations.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-botsphere-title">BotSphere</span>
+            <span class="sr-only" id="project-botsphere-description">A chatbot interface inspired by Gemini for interactive conversations.</span>
+            <span class="sr-only" id="project-botsphere-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/vr.jpg" alt="Screenshot of the Virtual Reality project" />
-        <div class="portfolio-layer">
-          <h4>Virtual Reality</h4>
-          <p></p>
-          <a href="https://frontvr.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View Virtual Reality project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-virtual-reality-title">
+          <a class="portfolio-link" href="https://frontvr.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-virtual-reality-description project-virtual-reality-new-tab" aria-labelledby="project-virtual-reality-title">
+            <img src="images/vr.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Virtual Reality</span>
+              <span class="portfolio-description">A frontend virtual reality landing page and interactive web experience.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-virtual-reality-title">Virtual Reality</span>
+            <span class="sr-only" id="project-virtual-reality-description">A frontend virtual reality landing page and interactive web experience.</span>
+            <span class="sr-only" id="project-virtual-reality-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/rqg.jpg" alt="Screenshot of the Random Quotes project" />
-        <div class="portfolio-layer">
-          <h4>Random Quotes</h4>
-          <p></p>
-          <a href="https://rq-generator.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View Random Quotes project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-random-quotes-title">
+          <a class="portfolio-link" href="https://rq-generator.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-random-quotes-description project-random-quotes-new-tab" aria-labelledby="project-random-quotes-title">
+            <img src="images/rqg.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">Random Quotes</span>
+              <span class="portfolio-description">A random quote generator for quickly discovering and sharing quotes.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-random-quotes-title">Random Quotes</span>
+            <span class="sr-only" id="project-random-quotes-description">A random quote generator for quickly discovering and sharing quotes.</span>
+            <span class="sr-only" id="project-random-quotes-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <!-- <img src="images/readnest.png" alt=""> -->
-        <img src="images/rn.jpg" alt="Screenshot of the ReadNest project" />
-        <div class="portfolio-layer">
-          <h4>ReadNest</h4>
-          <!-- <p style="color: #323946">a books selling webapp</p> -->
-          <a href="https://readnest.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View ReadNest project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-readnest-title">
+          <a class="portfolio-link" href="https://readnest.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-readnest-description project-readnest-new-tab" aria-labelledby="project-readnest-title">
+            <img src="images/rn.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">ReadNest</span>
+              <span class="portfolio-description">A book-selling web application focused on browsing and shopping for books.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-readnest-title">ReadNest</span>
+            <span class="sr-only" id="project-readnest-description">A book-selling web application focused on browsing and shopping for books.</span>
+            <span class="sr-only" id="project-readnest-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/bb.jpg" alt="Screenshot of the BigBrains project" />
-        <div class="portfolio-layer">
-          <h4>BigBrains</h4>
-          <!-- <p>Web Application for Selling Online Courses
-            <span style="color: rgba(219, 219, 219, 0.793)">*Production</span>
-          </p> -->
-          <a href="https://bigbrainss.com/" target="_blank" rel="noopener noreferrer" aria-label="View BigBrains project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-bigbrains-title">
+          <a class="portfolio-link" href="https://bigbrainss.com/" target="_blank" rel="noopener noreferrer" aria-describedby="project-bigbrains-description project-bigbrains-new-tab" aria-labelledby="project-bigbrains-title">
+            <img src="images/bb.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">BigBrains</span>
+              <span class="portfolio-description">A production web application for selling online courses.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-bigbrains-title">BigBrains</span>
+            <span class="sr-only" id="project-bigbrains-description">A production web application for selling online courses.</span>
+            <span class="sr-only" id="project-bigbrains-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/dl.jpg" alt="Screenshot of the DeadLine Tracker project" />
-        <div class="portfolio-layer">
-          <h4>DeadLine Tracker</h4>
-          <a href="https://deadline-tracker04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View DeadLine Tracker project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-deadline-tracker-title">
+          <a class="portfolio-link" href="https://deadline-tracker04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-deadline-tracker-description project-deadline-tracker-new-tab" aria-labelledby="project-deadline-tracker-title">
+            <img src="images/dl.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">DeadLine Tracker</span>
+              <span class="portfolio-description">A deadline tracking tool for managing tasks and due dates.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-deadline-tracker-title">DeadLine Tracker</span>
+            <span class="sr-only" id="project-deadline-tracker-description">A deadline tracking tool for managing tasks and due dates.</span>
+            <span class="sr-only" id="project-deadline-tracker-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/tell_me_your_need.png" alt="Screenshot of the TellMeYourNeed project" />
-        <div class="portfolio-layer">
-          <h4>TellMeYourNeed</h4>
-          <a href="https://tellmeyourneed.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View TellMeYourNeed project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-tellmeyourneed-title">
+          <a class="portfolio-link" href="https://tellmeyourneed.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-tellmeyourneed-description project-tellmeyourneed-new-tab" aria-labelledby="project-tellmeyourneed-title">
+            <img src="images/tell_me_your_need.png" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">TellMeYourNeed</span>
+              <span class="portfolio-description">A web application that helps users share requirements and connect around needs.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-tellmeyourneed-title">TellMeYourNeed</span>
+            <span class="sr-only" id="project-tellmeyourneed-description">A web application that helps users share requirements and connect around needs.</span>
+            <span class="sr-only" id="project-tellmeyourneed-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
 
-      <div class="portfolio-box">
-        <img src="images/ta.jpg" alt="Screenshot of the ThinkArena project" />
-        <div class="portfolio-layer">
-          <h4>ThinkArena</h4>
-          <a href="https://thinkarena.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View ThinkArena project (opens in a new tab)"><i class="bx bx-link-external" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- </div> -->
+      <li class="portfolio-box">
+        <article class="portfolio-card" aria-labelledby="project-thinkarena-title">
+          <a class="portfolio-link" href="https://thinkarena.vercel.app/" target="_blank" rel="noopener noreferrer" aria-describedby="project-thinkarena-description project-thinkarena-new-tab" aria-labelledby="project-thinkarena-title">
+            <img src="images/ta.jpg" alt="" />
+            <span class="portfolio-layer" aria-hidden="true">
+              <span class="portfolio-title">ThinkArena</span>
+              <span class="portfolio-description">A web project for sharing ideas and exploring thought-provoking content.</span>
+              <span class="portfolio-icon" aria-hidden="true"><i class="bx bx-link-external" aria-hidden="true"></i></span>
+            </span>
+            <span class="sr-only" id="project-thinkarena-title">ThinkArena</span>
+            <span class="sr-only" id="project-thinkarena-description">A web project for sharing ideas and exploring thought-provoking content.</span>
+            <span class="sr-only" id="project-thinkarena-new-tab">Opens in a new tab.</span>
+          </a>
+        </article>
+      </li>
+    </ul>
   </section>
 
   <!-- contact section design -->
@@ -283,7 +345,7 @@
   </main>
 
   <!-- custom message -->
-  <div id="custom-message" role="status" aria-live="polite" aria-atomic="true">
+  <div id="custom-message" role="status" aria-live="polite" aria-atomic="true" hidden>
     <p>
       Thank you for reaching out! I'll get back to you soon
       <i class="bx bx-rocket" aria-hidden="true"></i>
