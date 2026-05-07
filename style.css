@@ -544,6 +544,7 @@ span {
 }
 
 #rotatingText {
+    display: block;
     animation-name: rotate-circle;
     animation-duration: 10s;
     animation-timing-function: linear;
@@ -563,16 +564,32 @@ span {
 }
 
 .main {
+    position: relative;
     display: grid;
     align-items: center;
     justify-items: center;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.main a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    border-radius: 1.2rem;
+}
+
+.main a:focus-visible {
+    outline: .3rem solid var(--main-color);
+    outline-offset: .4rem;
+    box-shadow: 0 0 0 .6rem var(--secoden-bg-color);
 }
 
 .main img {
     position: absolute;
     transform: rotate(-20deg);
     opacity: .8;
+    pointer-events: none;
 }
 
 
